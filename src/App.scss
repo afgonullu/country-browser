@@ -1,0 +1,15 @@
+$theme-white: #ffffff;
+$cerulean-crayola: #00a7e1;
+$rich-black: #00171f;
+$prussian-blue: #003459;
+$cg-blue: #007ea7;
+
+$theme-colors: (
+  "primary": $prussian-blue,
+  "secondary": $cg-blue,
+  "info": $cerulean-crayola,
+  "light": $theme-white,
+  "dark": $rich-black,
+);
+
+@import "~bootstrap/scss/bootstrap";
