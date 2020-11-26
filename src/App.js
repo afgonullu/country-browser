@@ -40,7 +40,7 @@ const App = (props) => {
 
   const handleSelectCountry = async (country) => {
     const response = await axios.get(
-      `http://api.weatherstack.com/current?access_key=${process.env.REACT_APP_WEATHERSTACK_API_KEY}&query=${country.capital}`
+      `https://api.weatherstack.com/current?access_key=${process.env.REACT_APP_WEATHERSTACK_API_KEY}&query=${country.capital}`
     )
 
     const weather = response.data.current
