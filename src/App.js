@@ -49,16 +49,16 @@ const App = (props) => {
       <Container>
         <Row className="justify-content-md-start align-items-start">
           <Col>
-            <h1>{country.name}</h1>
+            <h2>{country.name}</h2>
             <p>Capital City: {country.capital}</p>
             <p>Population: {country.population}</p>
-            <h3>Languages</h3>
+            <h4>Languages</h4>
             <ul>
               {country.languages.map((language) => (
                 <li key={language.name}>{language.name}</li>
               ))}
             </ul>
-            <h3>Weather in {country.capital}</h3>
+            <h4>Weather in {country.capital}</h4>
             <p>temperature: {weather.temperature} Celcius</p>
             <img src={weather.weather_icons[0]} alt="Temp Icon" />
             <p>Wind Speed: {weather.wind_speed} mph</p>
@@ -70,6 +70,7 @@ const App = (props) => {
               height="auto"
               width="320px"
               alt="country flag"
+              className="shadow rounded"
             />
           </Col>
         </Row>
@@ -78,10 +79,12 @@ const App = (props) => {
   }
 
   return (
-    <Container fluid>
+    <Container fluid className="bg-light">
+      <h1 className="text-center text-primary p-5">Country Browser</h1>
       <Row>
-        <Col md="3">
-          <Form>
+        <Col md="3" className="py-2">
+          <Form className="pb-3">
+            <Form.Label>Find A Country</Form.Label>
             <Form.Control
               value={search}
               type="text"
@@ -92,6 +95,7 @@ const App = (props) => {
           <ListGroup>
             {filtered.map((country) => (
               <ListGroupItem
+                action
                 key={country.name}
                 onClick={() => handleSelectCountry(country)}
               >
@@ -100,7 +104,9 @@ const App = (props) => {
             ))}
           </ListGroup>
         </Col>
-        <Col md="9">{details}</Col>
+        <Col md="9" className="py-2">
+          {details}
+        </Col>
       </Row>
     </Container>
   )
